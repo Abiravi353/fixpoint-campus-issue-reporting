@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Login - FixPoint</title>
+
+    <link rel="stylesheet" href="admin-login.css">
+
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-box">
+
+            <div class="logo">
+                Fix<span>Point</span>
+            </div>
+
+            <p class="admin-text">
+                Administrator Login
+            </p>
+
+            <form id="loginForm">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter username"
+                    required
+                >
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    required
+                >
+
+                <p
+                    id="loginError"
+                    class="login-error"
+                >
+                </p>
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <a href="index.html" class="back-link">
+                ← Back to FixPoint
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="admin-login.js"></script>
+
+</body>
+
+</html>

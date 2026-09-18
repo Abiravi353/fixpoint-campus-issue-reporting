@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>My Reports - FixPoint</title>
+
+    <link rel="stylesheet" href="my-reports.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <h1>My Reports</h1>
+
+        <p>
+            Check the status of your reported campus issues.
+        </p>
+
+    </header>
+
+
+    <main class="container">
+
+        <div class="search-section">
+
+            <label for="emailInput">
+                Enter your email
+            </label>
+
+            <input
+                type="email"
+                id="emailInput"
+                placeholder="Enter the email used while reporting"
+            >
+
+            <button
+                type="button"
+                onclick="findMyReports()"
+            >
+                Check My Reports
+            </button>
+
+        </div>
+
+
+        <div id="reportsContainer">
+
+            <p>
+                Enter your email and click Check My Reports.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script src="my-reports.js"></script>
+
+</body>
+
+</html>

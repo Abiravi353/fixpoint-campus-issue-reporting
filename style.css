@@ -1,0 +1,1416 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #010736;
+}
+
+
+/* =========================================================
+   THIN GLOWING NAVBAR
+========================================================= */
+
+.navbar {
+    width: 94%;
+    height: 58px;
+
+    margin: 14px auto 0;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #010736;
+
+    border: 1px solid rgba(111, 143, 224, 0.25);
+    border-radius: 10px;
+
+    position: relative;
+    z-index: 20;
+
+    box-shadow:
+        0 0 12px rgba(71, 103, 191, 0.25),
+        0 0 28px rgba(71, 103, 191, 0.10);
+}
+
+
+/* Thin glowing line at the top */
+
+.navbar::before {
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+    left: 7%;
+    right: 7%;
+
+    height: 2px;
+
+    background: #718fe0;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 5px #718fe0,
+        0 0 12px #536fc5,
+        0 0 24px rgba(83, 111, 197, 0.75);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.location-icon {
+    width: 32px;
+    height: 40px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-icon::before {
+    content: "";
+
+    width: 23px;
+    height: 30px;
+
+    background: #ffffff;
+
+    border-radius:
+        50%
+        50%
+        50%
+        0;
+
+    transform: rotate(-45deg);
+
+    position: absolute;
+    top: 4px;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(255, 255, 255, 0.18)
+        );
+}
+
+.location-icon span {
+    position: relative;
+    z-index: 2;
+
+    color: #010736;
+
+    font-size: 7px;
+
+    margin-top: -5px;
+}
+
+.brand-name {
+    font-size: 25px;
+    font-weight: 700;
+
+    letter-spacing: -1px;
+
+    color: #ffffff;
+
+    line-height: 1;
+}
+
+.brand-name span {
+    color: #8FA8E8;
+}
+
+.nav-divider {
+    height: 28px;
+    width: 1px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    margin-left: 5px;
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-link {
+    position: relative;
+
+    height: 38px;
+
+    padding: 0 13px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    text-decoration: none;
+
+    color: #C8D1E5;
+
+    border: 1px solid transparent;
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.nav-icon {
+    font-size: 16px;
+    line-height: 1;
+
+    color: #8FA8E8;
+
+    transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   NAV BUTTON HOVER GLOW
+========================================================= */
+
+.nav-link:hover {
+    color: #ffffff;
+
+    background: rgba(34, 57, 111, 0.35);
+
+    border-color: rgba(111, 143, 224, 0.25);
+
+    box-shadow:
+        0 0 7px rgba(83, 111, 197, 0.35),
+        0 0 15px rgba(83, 111, 197, 0.18);
+}
+
+.nav-link:hover .nav-icon {
+    color: #ffffff;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(143, 168, 232, 0.7)
+        );
+}
+
+
+/* =========================================================
+   ACTIVE NAV BUTTON
+========================================================= */
+
+.nav-link.active {
+    color: #ffffff;
+
+    background: rgba(34, 57, 111, 0.48);
+
+    border-color: rgba(111, 143, 224, 0.35);
+
+    box-shadow:
+        0 0 7px rgba(83, 111, 197, 0.45),
+        0 0 17px rgba(83, 111, 197, 0.20);
+}
+
+.nav-link.active .nav-icon {
+    color: #ffffff;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(143, 168, 232, 0.8)
+        );
+}
+
+
+/* Small glowing line under active button */
+
+.nav-link.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+
+    bottom: -2px;
+
+    height: 2px;
+
+    background: #718fe0;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 5px #718fe0,
+        0 0 10px #536fc5,
+        0 0 18px rgba(83, 111, 197, 0.7);
+}
+
+
+/* =========================================================
+   HOME SECTION
+========================================================= */
+
+.fixpoint-home {
+    min-height: 650px;
+
+    padding: 78px 7% 62px;
+
+    background: #ffffff;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HOME CONTENT
+========================================================= */
+
+.fixpoint-home-content {
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        450px;
+
+    align-items: center;
+
+    gap: 90px;
+}
+
+
+/* =========================================================
+   HOME TEXT
+========================================================= */
+
+.fixpoint-home-text {
+    max-width: 610px;
+}
+
+.fixpoint-home-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-bottom: 21px;
+
+    padding-left: 12px;
+
+    border-left: 3px solid #22396F;
+
+    color: #22396F;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+}
+
+.fixpoint-home-text h1 {
+    margin: 0;
+
+    color: #010736;
+
+    font-size: 63px;
+
+    line-height: 1.04;
+
+    font-weight: 700;
+
+    letter-spacing: -3px;
+}
+
+.fixpoint-home-text h1 span {
+    color: #22396F;
+}
+
+.fixpoint-home-text > p {
+    max-width: 535px;
+
+    margin: 27px 0 31px;
+
+    color: #59657b;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   HOME BUTTONS
+========================================================= */
+
+.fixpoint-home-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.fixpoint-primary-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 20px;
+
+    background: #010736;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border: 1px solid #010736;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.fixpoint-primary-btn span {
+    font-size: 19px;
+
+    line-height: 0;
+
+    transition: 0.25s ease;
+}
+
+.fixpoint-primary-btn:hover {
+    background: #22396F;
+
+    border-color: #22396F;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(34, 57, 111, 0.18);
+}
+
+.fixpoint-primary-btn:hover span {
+    transform: translateX(4px);
+}
+
+.fixpoint-secondary-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 14px 20px;
+
+    background: #ffffff;
+
+    color: #010736;
+
+    text-decoration: none;
+
+    border: 1px solid #d9dfe9;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.fixpoint-secondary-btn:hover {
+    border-color: #22396F;
+
+    background: #f7f9fc;
+}
+
+
+/* =========================================================
+   HOME NOTE
+========================================================= */
+
+.fixpoint-home-note {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    color: #858fa2;
+
+    font-size: 11px;
+}
+
+.fixpoint-note-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #22396F;
+}
+
+
+/* =========================================================
+   ISSUE CARD
+========================================================= */
+
+.fixpoint-product-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #dce2eb;
+
+    border-radius: 13px;
+
+    padding: 27px;
+
+    box-shadow:
+        0 22px 45px
+        rgba(1, 7, 54, 0.10);
+
+    position: relative;
+}
+
+.fixpoint-product-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 28px;
+    right: 28px;
+
+    height: 3px;
+
+    background: #22396F;
+
+    border-radius:
+        0
+        0
+        5px
+        5px;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.fixpoint-card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #e7ebf1;
+}
+
+.fixpoint-card-header small {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #7e899c;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.fixpoint-card-header h3 {
+    margin: 0;
+
+    color: #010736;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.fixpoint-status {
+    padding: 6px 9px;
+
+    background: #eef3fa;
+
+    color: #22396F;
+
+    border-radius: 5px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   CARD LOCATION
+========================================================= */
+
+.fixpoint-card-location {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 20px 0;
+}
+
+.fixpoint-location-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f1f4f9;
+
+    color: #22396F;
+
+    border-radius: 7px;
+
+    font-size: 18px;
+}
+
+.fixpoint-card-location strong {
+    display: block;
+
+    color: #18223d;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.fixpoint-card-location small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #8993a5;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+.fixpoint-card-description {
+    padding: 14px;
+
+    background: #f7f9fc;
+
+    border-left: 3px solid #22396F;
+
+    color: #5c6678;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+   CARD INFO
+========================================================= */
+
+.fixpoint-card-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #e7ebf1;
+}
+
+.fixpoint-card-info span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #8993a5;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+.fixpoint-card-info strong {
+    color: #18223d;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.fixpoint-progress {
+    padding: 20px 0 17px;
+}
+
+.fixpoint-progress-line {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    position: relative;
+
+    margin-bottom: 10px;
+}
+
+.fixpoint-progress-line::before {
+    content: "";
+
+    position: absolute;
+
+    top: 4px;
+
+    left: 3px;
+    right: 3px;
+
+    height: 2px;
+
+    background: #e1e5ec;
+}
+
+.fixpoint-progress-line span {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #d9dee7;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.fixpoint-progress-line span.completed {
+    background: #22396F;
+}
+
+.fixpoint-progress-line span.current {
+    background: #ffffff;
+
+    border: 3px solid #22396F;
+
+    width: 11px;
+    height: 11px;
+
+    margin-top: -1px;
+}
+
+.fixpoint-progress-labels {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 4px;
+}
+
+.fixpoint-progress-labels span {
+    color: #8a93a3;
+
+    font-size: 8px;
+
+    line-height: 1.3;
+}
+
+.fixpoint-progress-labels span:nth-child(3) {
+    color: #22396F;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+========================================================= */
+
+.fixpoint-card-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-top: 14px;
+
+    border-top: 1px solid #e7ebf1;
+}
+
+.fixpoint-card-footer span {
+    color: #9aa2b1;
+
+    font-size: 9px;
+}
+
+.fixpoint-card-footer strong {
+    color: #22396F;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.fixpoint-home-features {
+    max-width: 1180px;
+
+    margin: 67px auto 0;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e2e6ed;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 45px;
+}
+
+.fixpoint-feature {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+}
+
+.fixpoint-feature-number {
+    color: #22396F;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    padding-top: 2px;
+}
+
+.fixpoint-feature h3 {
+    margin: 0 0 5px;
+
+    color: #010736;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.fixpoint-feature p {
+    margin: 0;
+
+    color: #788296;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   REPORT SECTION
+========================================================= */
+
+.report-section {
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    padding: 85px 30px 80px;
+
+    scroll-margin-top: 30px;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.section-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #22396F;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+.label-line {
+    display: inline-block;
+
+    width: 24px;
+
+    height: 2px;
+
+    background: #22396F;
+}
+
+.section-title h2 {
+    color: #010736;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #667187;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+#issueForm {
+    background: #ffffff;
+
+    border: 1px solid #0D1C42;
+
+    border-radius: 12px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(1, 7, 54, 0.06);
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+
+    position: relative;
+}
+
+.form-row .form-group {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #18223d;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid #d7deea;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #18223d;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #22396F;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(34, 57, 111, 0.08);
+}
+
+.form-group textarea {
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+.hidden {
+    display: none;
+}
+
+.character-count {
+    position: absolute;
+
+    right: 10px;
+
+    bottom: 9px;
+
+    color: #8a93a3;
+
+    font-size: 10px;
+}
+
+#issueForm > button {
+    padding: 13px 22px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #010736;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+#issueForm > button:hover {
+    background: #22396F;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(34, 57, 111, 0.18);
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.success-message {
+    display: none;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 20px;
+
+    padding: 16px 18px;
+
+    background: #f5fbf7;
+
+    border: 1px solid #7bc796;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 12px
+        rgba(52, 168, 83, 0.12);
+}
+
+.success-icon {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #3aa76d;
+
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+.success-content {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+}
+
+.success-content strong {
+    color: #1d633e;
+
+    font-size: 13px;
+}
+
+.success-content span {
+    color: #62806e;
+
+    font-size: 11px;
+}
+
+.success-close {
+    border: none;
+
+    background: transparent;
+
+    color: #537261;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section {
+    padding: 80px 30px;
+
+    background: #f7f9fc;
+
+    border-top: 1px solid #e3e7ee;
+
+    border-bottom: 1px solid #e3e7ee;
+}
+
+.about-section .section-title {
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+.about-section h2 {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    background: #010736;
+
+    color: #dce3f2;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        width: 94%;
+
+        padding: 0 18px;
+    }
+
+    .nav-link {
+        padding: 0 10px;
+
+        font-size: 11px;
+    }
+
+    .fixpoint-home-content {
+        grid-template-columns:
+            minmax(0, 1fr)
+            410px;
+
+        gap: 50px;
+    }
+
+    .fixpoint-home-text h1 {
+        font-size: 54px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .navbar {
+        height: auto;
+
+        min-height: 65px;
+
+        flex-wrap: wrap;
+
+        gap: 8px;
+
+        padding: 10px 18px;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .fixpoint-home {
+        padding-top: 60px;
+    }
+
+    .fixpoint-home-content {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .fixpoint-home-text {
+        max-width: 700px;
+    }
+
+    .fixpoint-product-card {
+        max-width: 500px;
+
+        margin: 0 auto;
+    }
+
+    .fixpoint-home-features {
+        margin-top: 55px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        width: 94%;
+
+        border-radius: 9px;
+    }
+
+    .nav-brand {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .nav-divider {
+        display: none;
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-link {
+        height: 36px;
+
+        padding: 0 8px;
+
+        font-size: 10px;
+    }
+
+    .nav-icon {
+        font-size: 14px;
+    }
+
+    .fixpoint-home {
+        padding:
+            55px 6%
+            50px;
+    }
+
+    .fixpoint-home-text h1 {
+        font-size: 44px;
+
+        letter-spacing: -2px;
+    }
+
+    .fixpoint-home-text > p {
+        font-size: 14px;
+    }
+
+    .fixpoint-home-buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .fixpoint-home-features {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        margin-top: 50px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    #issueForm {
+        padding: 25px 20px;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .brand-name {
+        font-size: 27px;
+    }
+
+    .nav-link {
+        padding: 0 7px;
+
+        font-size: 10px;
+    }
+
+    .nav-link .nav-icon {
+        display: none;
+    }
+
+    .fixpoint-home-text h1 {
+        font-size: 37px;
+    }
+
+    .fixpoint-product-card {
+        padding: 21px;
+    }
+
+    .fixpoint-card-header {
+        flex-direction: column;
+    }
+
+    .fixpoint-status {
+        align-self: flex-start;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+}

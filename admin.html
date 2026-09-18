@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FixPoint | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-mark">F</span>
+
+            <div>
+                <h2>FixPoint</h2>
+                <p>Admin Portal</p>
+            </div>
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="#" class="nav-item active">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="index.html" class="nav-item">
+                <span>⌂</span>
+                Main Website
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+
+                <div class="profile-icon">
+                    A
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <span>FixPoint Admin</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="page-heading">
+
+                <p class="breadcrumb">
+                    Admin / Dashboard
+                </p>
+
+                <h1>Dashboard</h1>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    System Online
+                </div>
+
+                <div class="date">
+                    <span id="currentDate"></span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD CONTENT -->
+
+        <section class="dashboard-content">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome-section">
+
+                <div>
+                    <h2>Campus Issue Overview</h2>
+
+                    <p>
+                        Monitor, review and manage reported campus issues.
+                    </p>
+                </div>
+
+                <button class="refresh-button" onclick="loadReports()">
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="statistics-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon total-icon">
+                        ▦
+                    </div>
+
+                    <div class="stat-details">
+
+                        <span>Total Reports</span>
+
+                        <strong id="totalReports">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pending-icon">
+                        ◷
+                    </div>
+
+                    <div class="stat-details">
+
+                        <span>Pending</span>
+
+                        <strong id="pendingReports">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon progress-icon">
+                        ↻
+                    </div>
+
+                    <div class="stat-details">
+
+                        <span>In Progress</span>
+
+                        <strong id="progressReports">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon resolved-icon">
+                        ✓
+                    </div>
+
+                    <div class="stat-details">
+
+                        <span>Resolved</span>
+
+                        <strong id="resolvedReports">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- REPORTS -->
+
+            <section class="reports-card">
+
+                <div class="reports-header">
+
+                    <div>
+
+                        <h2>Recent Issue Reports</h2>
+
+                        <p>
+                            Reports submitted through the FixPoint system
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FILTER BAR -->
+
+                <div class="filter-bar">
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search reports..."
+                        >
+
+                    </div>
+
+
+                    <select id="priorityFilter">
+
+                        <option value="all">
+                            All Priorities
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                    </select>
+
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="In Progress">
+                            In Progress
+                        </option>
+
+                        <option value="Resolved">
+                            Resolved
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TABLE -->
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>REPORTER</th>
+
+                                <th>ISSUE</th>
+
+                                <th>PRIORITY</th>
+
+                                <th>LOCATION</th>
+
+                                <th>DATE</th>
+
+                                <th>STATUS</th>
+
+<th>ACTION</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="reportsTable">
+
+                            <tr>
+
+                                <td colspan="8" class="loading">
+                                    Loading reports...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- EMPTY MESSAGE -->
+
+                <div
+                    id="emptyMessage"
+                    class="empty-message"
+                    style="display: none;"
+                >
+
+                    <div class="empty-icon">
+                        ✓
+                    </div>
+
+                    <h3>No reports found</h3>
+
+                    <p>
+                        Try changing your search or filter.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+<!-- REPORT DETAILS MODAL -->
+
+<div id="reportModal" class="report-modal">
+
+    <div class="report-modal-content">
+
+        <!-- MODAL HEADER -->
+
+        <div class="modal-header">
+
+            <div>
+                <p class="modal-label">
+                    FIXPOINT REPORT
+                </p>
+
+                <h2 id="modalReportTitle">
+                    Report #1
+                </h2>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeReportModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- REPORT DETAILS -->
+
+        <div class="modal-body">
+
+            <div class="detail-section">
+
+                <h3>Reporter Information</h3>
+
+                <div class="detail-grid">
+
+                    <div class="detail-item">
+
+                        <span>Name</span>
+
+                        <strong id="modalName">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Role</span>
+
+                        <strong id="modalRole">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Email</span>
+
+                        <strong id="modalEmail">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span id="modalIdLabel">
+                            Register Number
+                        </span>
+
+                        <strong id="modalId">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Department</span>
+
+                        <strong id="modalDepartment">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-section">
+
+                <h3>Issue Information</h3>
+
+                <div class="detail-grid">
+
+                    <div class="detail-item">
+
+                        <span>Issue Type</span>
+
+                        <strong id="modalIssue">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Priority</span>
+
+                        <strong id="modalPriority">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Building</span>
+
+                        <strong id="modalBuilding">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Room / Area</span>
+
+                        <strong id="modalRoom">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Status</span>
+
+                        <strong id="modalStatus">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>Date Reported</span>
+
+                        <strong id="modalDate">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-section">
+
+                <h3>Issue Description</h3>
+
+                <div class="description-box">
+
+                    <p id="modalDescription">
+                        -
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MODAL FOOTER -->
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="modal-close-button"
+                onclick="closeReportModal()"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
